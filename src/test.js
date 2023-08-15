@@ -1,11 +1,11 @@
 function toReadable (number) {
-    let numberInt = +number;
+    let numberInt = number;
     let resultHundred = '';
     let resultTens = '';
     let result = '';
     let resultUnits = '';
      if (numberInt > 99) {
-        let firstNumber = +number[0];
+        let firstNumber = (numberInt - (numberInt % 100)) / 100;
         switch (firstNumber) {
             case 0:
               return 'Zero';
@@ -38,7 +38,7 @@ function toReadable (number) {
                 resultHundred = 'nine hundred';
               break;
               }
-              numberInt = +number.slice(1);
+              numberInt = numberInt-(firstNumber*100);
               //console.log(numberInt);
      }
      if (numberInt >= 20 && numberInt <= 99) {
@@ -114,31 +114,31 @@ function toReadable (number) {
                         resultUnits = 'nineteen';
                       break;
                 case 1:
-                    resultUnits = 'one';
+                    resultUnits = ' one';
                 break;
                 case 2:
-                    resultUnits = 'two';
+                    resultUnits = ' two';
                 break;
                 case 3:
-                    resultUnits = 'three';
+                    resultUnits = ' three';
                 break;
                 case 4:
-                    resultUnits = 'four';
+                    resultUnits = ' four';
                 break;
                 case 5:
-                    resultUnits = 'five';
+                    resultUnits = ' five';
                 break;
                 case 6:
-                    resultUnits ='six';
+                    resultUnits =' six';
                 break;
                 case 7:
-                    resultUnits = 'seven';
+                    resultUnits = ' seven';
                 break;
                 case 8:
-                    resultUnits = 'eight';
+                    resultUnits = ' eight';
                 break;
                 case 9:
-                    resultUnits = 'nine';
+                    resultUnits = ' nine';
                 break;
                 }
     }
@@ -149,4 +149,4 @@ function toReadable (number) {
      return result.trim();
   };
 
-  console.log(toReadable('5'));
+  console.log(toReadable(105));
